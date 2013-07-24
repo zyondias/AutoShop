@@ -1,0 +1,22 @@
+<h2>Loja zaza</h2>
+<h4>Cadastro - Carro</h4>
+<h3><%=
+ #pegando noticia enviada no cadastro feito na controler com o flash caso eu usase outro nome inves de notice (convesao) teria que pegar o dado da seguinte forma flash[:nome_colocado]
+ notice 
+%></h3>
+<div  class="hero-unit">
+<%= render partial: "anuncios/form"%>
+</div>
+<table class="table table-striped">
+	<tr>
+		<th>Modelo</th>
+		<th>Ano</th>
+		<th>Valor</th>
+		<th>Descricao</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<%= render @anuncios%>
+</table>
+
+
