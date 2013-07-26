@@ -9,7 +9,7 @@
 %></h3>
 <% if user_signed_in? %>
 <div  class="hero-unit">
-<%= render partial: "anuncios/form"%>
+<%= render partial: "anuncios/form", locals: {anuncio: anuncio}%>
 </div>
 <% end %>
 <table class="table table-striped">

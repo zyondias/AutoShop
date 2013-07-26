@@ -13,6 +13,9 @@ class AnunciosController < ApplicationController
 			#metodo que deixa gravado a variavel por 2 requisicoes inves de duas .ideial para mandar respotar pra pagina
 			flash[:notice] = "acnuncio cadastro com sucesso"
 			redirect_to root_path
+		else
+			@marcas = Marca.por_nome
+			render "anuncios/cadastro", locals: {anuncio: anuncio}
 		end
 		#enviando a pagina para pagina index(pagina princial)
 			

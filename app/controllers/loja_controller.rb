@@ -11,6 +11,9 @@ class LojaController < ApplicationController
  	else
  		Anuncio.aprovados
  	end
+ 	@marcas = Marca.por_nome
+ 	anuncio = Anuncio.new {|a| a.build_marca}
+ 	render "principal", locals: {anuncio: anuncio}
   end
 
  end
