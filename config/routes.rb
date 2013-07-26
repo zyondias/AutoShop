@@ -1,5 +1,7 @@
 AutoShop::Application.routes.draw do
   
+  devise_for :users
+
   #sete rotas padroes para aunicios edit update create show destroy new
   #resources :anuncios do
   #add apenas rotas necessaris
@@ -8,6 +10,8 @@ AutoShop::Application.routes.draw do
     member do
       get "delete"
       delete "delete" => "anuncios#destroy"
+      put 'approve' => "anuncios#approve"
+      # "approve" => "anuncios#approve"
     end
   end
 

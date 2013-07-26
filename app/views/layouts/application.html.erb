@@ -7,10 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if user_signed_in? %>
+	Ola <b><%= current_user.nome  %> <%= current_user.role %></b>
+	<%= link_to "sair", destroy_user_session_path, method: :delete %>
+<%else%>
+ 	<%= link_to "Entra", new_user_session_path %>
+<% end %>
 <div class="container">
 <%= yield %>
 </div>
-
-<%= yield :js%>
+<script>
+ <%= yield :js%>
+</script>
 </body>
 </html>

@@ -1,9 +1,15 @@
 <%= simple_form_for(@anuncio, :html => {multipart: true, :class => 'form-horizontal' }) do |f|  %>
+<%= f.error_notification %>
 <div class="form-inputs">
 	<%= f.input :modelo, placeholder: "Corsa"%>
 	<%= f.input :descricao, placeholder: "Carro economico", :input_html =>{:cols => 50, :rows => 3} %>
 	<%= f.input :ano, placeholder: "2010" %>
 	<%= f.input :valor, placeholder: "20.00"%>
+	<%= f.simple_fields_for :marca do |m| %>
+		<%= m.input :nome, label: "Marca" %>
+	<% end %>
+	<%= select :anuncio, :marca_id, @marcas.map {|m| [m.nome, m.id] },
+		prompt: "Ou selecione" %>
 </div>
 
 	<%= f.button :submit, class: "btn btn-primary btn-large" %>

@@ -2,11 +2,24 @@
  	<td><%= anuncio.modelo %></td>
  	<td><%= anuncio.ano %></td>
  	<td><%= valor_formatado anuncio.valor %></td>
+ 	<td><%= anuncio.marca && anuncio.marca.nome%></td>
+ 	<td><%= anuncio.anunciante.nome %></td>
  	<td><%= anuncio.descricao%></td>
+ 	<% if anuncio.anunciante == current_user %>
+
+ 	
  	<td><%= link_to "Editar", edit_anuncio_path(anuncio)%></td>
- 	<td><%= link_to "Excluir", delete_anuncio_path(anuncio), :remote => true, method: :delete, data:{confirm: "tem certeza que quer deletar #{anuncio.modelo} ?"} %></td>
+ 	<td><%= link_to "Excluir", delete_anuncio_path(anuncio), :id => "remove_modelo_#{anuncio.id}", :remote => true, method: :delete, data:{confirm: "tem certeza que quer deletar #{anuncio.modelo} ?"} %></td>
+ 	<% end %>
+ 	<% unless anuncio.aprovado %>
+ 		<td><%= link_to "Aprovado", approve_anuncio_path(anuncio), method: :put %></td>
+ 	<% end %>
 </tr>
 
 <%= content_for :js do %>
-	$(#)
+$('#remove_modelo_<%= anuncio.id %>').bind('ajax:success',
+	 function(){
+	    $('#modelo_<%= anuncio.id %>').remove();
+	}
+	);
 <% end%>
