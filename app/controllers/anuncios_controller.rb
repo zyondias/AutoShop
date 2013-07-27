@@ -14,20 +14,21 @@ class AnunciosController < ApplicationController
 			flash[:notice] = "acnuncio cadastro com sucesso"
 			redirect_to root_path
 		else
-			@marcas = Marca.por_nome
-			render "anuncios/cadastro", locals: {anuncio: anuncio}
+			render_cadastro anuncio
 		end
 		#enviando a pagina para pagina index(pagina princial)
 			
 	end
 	def edit
-		@marcas = Marca.por_nome
+		render_cadastro @anuncio
 	end
 	def update
 		if @anuncio.update_attributes params_anuncio 
 			flash[:notice] = "O anunncio foi atualizado"
+			redirect_to root_path
+		else
+			render_cadastro cadastro
 		end
-		redirect_to root_path
 	end
 
 	def delete
@@ -45,7 +46,8 @@ class AnunciosController < ApplicationController
 
 	def approve	
 		#authorize! :approve , @anuncio
-		if @anuncio.update_attribute :aprovado, true
+		anuncio = Anuncio.find(params[:id])
+		if anuncio.update_attribute :aprovado, true
 			flash[:notice] = "Anuncio aprovado"
 		end
 		redirect_to root_path

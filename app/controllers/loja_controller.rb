@@ -1,8 +1,5 @@
 class LojaController < ApplicationController
- 
-
-  
-  def principal
+   def principal
   	@marcas = Marca.por_nome
   	@anuncio = Anuncio.new {|a| a.build_marca}
   	is_admin = current_user && current_user.role == "admin"
@@ -11,9 +8,8 @@ class LojaController < ApplicationController
  	else
  		Anuncio.aprovados
  	end
- 	@marcas = Marca.por_nome
  	anuncio = Anuncio.new {|a| a.build_marca}
- 	render "principal", locals: {anuncio: anuncio}
+ 	render_cadastro  anuncio, "principal"
   end
 
  end

@@ -14,6 +14,7 @@ AutoShop::Application.routes.draw do
       # "approve" => "anuncios#approve"
     end
   end
+  put "idioma/:lingua" => "idiomas#update"
 
   #pagina index - sempre root to: controller#action
   root to: "loja#principal"

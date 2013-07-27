@@ -2,4 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  idioma_indles: Ingleshi
+  criacao: Create
+  idioma_portuges: Protuguize
   hello: "Hello world"
+  modelo: Model
+  ano: Year 
+  valor: Price
+  marca: Brand
+  descricao: Description
+  time:
+    formats:
+      default: '%m - %d - %Y'
+      short: '%m in %Y'
+    day_names: 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'

@@ -1,5 +1,9 @@
 <p><%= notice %></p>
 <p><%= alert %></p>
+<u>
+	<li><%= link_to t(:idioma_portuges), "idioma/pt", method: "put" %></li>
+	<li><%= link_to t(:idioma_indles), "idioma/en", method: "put"%></li>
+</u>
 
 <h2>Loja zaza</h2>
 <h4>Cadastro - Carro</h4>
@@ -9,17 +13,19 @@
 %></h3>
 <% if user_signed_in? %>
 <div  class="hero-unit">
-<%= render partial: "anuncios/form", locals: {anuncio: anuncio}%>
+<%= render partial: "anuncios/form", locals: {anuncio: anuncio, marcas: marcas}%>
 </div>
 <% end %>
+<%= t :anuncios, count: @anuncios.size %><br />
 <table class="table table-striped">
 	<tr>
-		<th>Modelo</th>
-		<th>Ano</th>
-		<th>Valor</th>
-		<th>Marca</th>
-		<th>Anunciante</th>
-		<th>Descricao</th>
+		<th><%= t :modelo%></th>
+		<th><%= t :ano%></th>
+		<th><%= t :valor%></th>
+		<th><%= t :marca%></th>
+		<th><%= t :anunciante%></th>
+		<th><%= t :descricao%></th>
+		<th><%= t :criacao %></th>
 		<% if user_signed_in? %>
 		<th></th>
 		<th></th>

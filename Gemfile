@@ -3,6 +3,14 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 #cancan serve para gerencias
 gem 'cancan'
+#gem para testes
+group :test, :development do
+	gem "rspec-rails", "~>2.0"
+	gem "capybara"
+	gem "database_cleaner"
+end
+
+
 
 #gem para autenticacao
 gem 'devise', '>=2'
