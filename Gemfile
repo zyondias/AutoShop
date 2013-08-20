@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '3.2.3'
 #cancan serve para gerencias
 gem 'cancan'
@@ -43,9 +44,10 @@ gem 'jquery-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
+group :development
 # Deploy with Capistrano
-# gem 'capistrano'
+   gem 'capistrano'
+end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
